@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 北海道8天7夜秋日饗宴 ‧ 
+追楓 x 溫泉 x 海鮮 </title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maple: {
+                            50: '#fff8f1',
+                            100: '#fdeedc',
+                            200: '#fbd4b4',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                            dark: '#451a03',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#ea580c 0.5px, transparent 0.5px), radial-gradient(#ea580c 0.5px, #fdfbf7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-opacity: 0.03;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-stone-800 font-sans pb-24 lg:pb-12 min-h-screen flex flex-col justify-between">
+
+<!-- Header Section -->
+    <header class="relative bg-maple-dark text-white overflow-hidden shadow-xl">
+        <div class="absolute inset-0 z-0 opacity-60 bg-cover bg-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1545105511-839f4a45a030?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D⁠');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-maple-dark/60 via-maple-900/20 to-transparent z-10">
+        </div>
+
+        <div class="relative z-20 max-w-6xl mx-auto px-4 py-10 md:py-16 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maple-700/80 text-maple-100 text-xs font-medium mb-3 backdrop-blur-md border border-maple-500/30">
+                    <i class="fa-solid fa-leaf text-amber-300"></i> 秋季賞楓限定
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-amber-50"> 北海道8天7夜秋日饗宴 ‧ 
+追楓 x 溫泉 x 海鮮 </h1>
+                <p class="mt-2 text-maple-200 text-sm md:text-base font-light">札幌 ➔ 旭川 ➔ 美瑛 ➔ 小樽 ➔ 定山溪 ➔ 函館</p>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-center w-full md:w-auto min-w-[240px]">
+                <p class="text-xs text-maple-200 uppercase tracking-wider font-semibold">行程總預算</p>
+                <p class="text-2xl font-bold text-amber-300 mt-1"><span id="header-total-twd">NT$ 0</span></p>
+                <p class="text-xs text-stone-200 mt-0.5">約 <span id="header-total-jpy">¥ 0</span> JPY</p>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation Bar -->
+        <nav class="hidden md:block bg-maple-900/90 border-t border-maple-700/50 backdrop-blur-md relative z-20">
+            <div class="max-w-6xl mx-auto px-4 flex justify-center space-x-8">
+                <button onclick="switchMainTab('itinerary')" class="main-tab-btn py-3 px-4 font-medium text-amber-200 hover:text-white border-b-2 border-amber-400 transition" id="desk-tab-itinerary">
+                    <i class="fa-solid fa-calendar-days mr-2"></i>每日行程
+                </button>
+                <button onclick="switchMainTab('gourmet')" class="main-tab-btn py-3 px-4 font-medium text-stone-300 hover:text-white border-b-2 border-transparent transition" id="desk-tab-gourmet">
+                    <i class="fa-solid fa-utensils mr-2"></i>美食地圖
+                </button>
+                <button onclick="switchMainTab('overview')" class="main-tab-btn py-3 px-4 font-medium text-stone-300 hover:text-white border-b-2 border-transparent transition" id="desk-tab-overview">
+                    <i class="fa-solid fa-chart-pie mr-2"></i>行程總覽與費用
+                </button>
+                <button onclick="switchMainTab('memo')" class="main-tab-btn py-3 px-4 font-medium text-stone-300 hover:text-white border-b-2 border-transparent transition" id="desk-tab-memo">
+                    <i class="fa-solid fa-note-sticky mr-2"></i>備忘錄
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
+
+        <!-- ================= VIEW 1: DAILY ITINERARY ================= -->
+        <section id="view-itinerary" class="tab-view block space-y-6">
+            
+            <!-- Day Selector Tabs -->
+            <div class="sticky top-0 z-40 bg-stone-50/90 backdrop-blur-md py-3 -mx-4 px-4 border-b border-stone-200/80 shadow-sm" id="day-tabs-header">
+                <div class="flex items-center space-x-2 overflow-x-auto hide-scrollbar max-w-6xl mx-auto">
+                    <button onclick="switchDay(1)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm transition shadow-sm bg-maple-600 text-white" id="day-btn-1">
+                        Day 1 <span class="text-[11px] opacity-80 block font-normal">10/20 札幌</span>
+                    </button>
+                    <button onclick="switchDay(2)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-2">
+                        Day 2 <span class="text-[11px] text-stone-400 block font-normal">10/21 市區賞楓</span>
+                    </button>
+                    <button onclick="switchDay(3)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-3">
+                        Day 3 <span class="text-[11px] text-stone-400 block font-normal">10/22 旭川山景</span>
+                    </button>
+                    <button onclick="switchDay(4)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-4">
+                        Day 4 <span class="text-[11px] text-stone-400 block font-normal">10/23 美瑛小樽</span>
+                    </button>
+                    <button onclick="switchDay(5)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-5">
+                        Day 5 <span class="text-[11px] text-stone-400 block font-normal">10/24 定山溪</span>
+                    </button>
+                    <button onclick="switchDay(6)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-6">
+                        Day 6 <span class="text-[11px] text-stone-400 block font-normal">10/25 洞爺函館</span>
+                    </button>
+                    <button onclick="switchDay(7)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-7">
+                        Day 7 <span class="text-[11px] text-stone-400 block font-normal">10/26 函館秘境</span>
+                    </button>
+                    <button onclick="switchDay(8)" class="day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm" id="day-btn-8">
+                        Day 8 <span class="text-[11px] text-stone-400 block font-normal">10/27 賦歸</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Anchor -->
+            <div id="itinerary-top-anchor" class="pt-1"></div>
+
+            <!-- DAY 1 CONTENT -->
+            <div id="day-content-1" class="day-panel space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 1 ・ 10/20 (二)</span>
+                        <h2 class="text-xl font-bold mt-0.5">抵達札幌・新千歲機場巡禮</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>10:00 (機場集合)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-1" class="fa-solid fa-cloud-sun text-2xl text-amber-600"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-1">札幌即時氣候</span>
+                                <span id="weather-status-1" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-1" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-1" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>早晚溫差大，建議採用洋蔥式穿法（長袖搭配可防風之洋裁外套）。新千歲機場入境與搭車人潮多，建議隨身攜帶水壺與輕便護照包。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">13:00 - 17:55</span>
+                            <h3 class="font-bold text-stone-800 mt-1">桃園國際機場 ➔ 新千歲機場</h3>
+                            <p class="text-sm text-stone-600 mt-1">搭乘酷航 TR892 航班飛往北海道。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-shoe-prints text-maple-500"></i>
+                        <span>航廈內部步行與入境通關：預計約 <strong>50 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">17:55 - 18:45</span>
+                            <h3 class="font-bold text-stone-800 mt-1">新千歲機場入境大廳</h3>
+                            <p class="text-sm text-stone-600 mt-1">完成入境審查、領取行李與購買交通票券。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>步行至國內線三樓拉麵道場：預計約 <strong>10 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">18:45 - 19:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">機場晚餐：北海道拉麵道場</h3>
+                                    <p class="text-sm text-stone-600 mt-1">於機場拉麵美食街享用熱騰騰的道地熟食拉麵。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=新千歳空港+北海道ラーメン道場" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-train text-maple-500"></i>
+                        <span>JR 快速 Airport 號車程（新千歲機場 ➔ 札幌站）：預計 <strong>37 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">19:30 - 20:15</span>
+                            <h3 class="font-bold text-stone-800 mt-1">JR 快速エアポート (Airport)</h3>
+                            <p class="text-sm text-stone-600 mt-1">搭乘 JR 快速列車直達札幌站（車程約 37 分鐘）。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-subway text-maple-500"></i>
+                        <span>札幌地下鐵南北線（札幌站 ➔ 中島公園站）：預計 <strong>10 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">20:15 - 21:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">中島公園（夜楓）</h3>
+                                    <p class="text-sm text-stone-600 mt-1">優美的夜間紅葉漫步，欣賞池畔倒影。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=中島公園+札幌" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Independent Hotel Card -->
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店 (第 1 晚)</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">札幌萬怡酒店 (Courtyard by Marriott Sapporo)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：$10,500 TWD（第 1、2 晚合併預算）</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Sapporo" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 2 CONTENT -->
+            <div id="day-content-2" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 2 ・ 10/21 (三)</span>
+                        <h2 class="text-xl font-bold mt-0.5">札幌秋色 ➔ 站前購物 ➔ 狸小路</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:30 (飯店出發)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-2" class="fa-solid fa-sun text-2xl text-amber-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-2">札幌即時氣候</span>
+                                <span id="weather-status-2" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-2" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-2" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>北海道大學銀杏大道風較大，建議攜帶圍巾與帽子保暖。今日全天以地下鐵與步行為主，請穿著舒適好走的高舒適度步鞋。</p>
+                    </div>
+                </div>
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">09:00 - 11:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">北海道大學「金葉並木」</h3>
+                                    <p class="text-sm text-stone-600 mt-1">參訪著名的金色銀杏大道與廣闊校園秋景。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=北海道大学+金葉並木" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-subway text-maple-500"></i>
+                        <span>地下鐵南北線（北12條站 ➔ 薄野站）：預計約 <strong>15 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">11:30 - 13:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">午餐預定地點：螃蟹料理名店</h3>
+                                    <p class="text-sm text-stone-600 mt-1">前往薄野商圈享用精緻熟食螃蟹午間會席。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=札幌かに家+本店" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>沿地下街散步至札幌站前：預計約 <strong>12 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-stone-400 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">13:00 - 16:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">札幌車站周邊百貨商圈</h3>
+                                    <p class="text-sm text-stone-600 mt-1">大丸百貨與 JR Tower 購物。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=大丸札幌店" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-subway text-maple-500"></i>
+                        <span>地下鐵南北線（札幌站 ➔ 中島公園站）：預計約 <strong>10 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">16:30 - 18:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">中島公園（池畔日落與楓紅）</h3>
+                                    <p class="text-sm text-stone-600 mt-1">欣賞深秋池畔景致與黃昏氛圍。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=中島公園+札幌" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>步行至狸小路商店街：預計約 <strong>15 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">18:00 - 20:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">狸小路商店街 & 晚餐</h3>
+                                    <p class="text-sm text-stone-600 mt-1">商店街逛街，並享用暖胃的熟食湯咖哩。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=狸小路商店街" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店 (第 2 晚)</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">札幌萬怡酒店 (Courtyard by Marriott Sapporo)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：已合併計入第 1 晚</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Sapporo" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 3 CONTENT -->
+            <div id="day-content-3" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 3 ・ 10/22 (四)</span>
+                        <h2 class="text-xl font-bold mt-0.5">自駕出發！
+旭岳壯麗高山紅葉 ➔ 旭山動物園</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:15 </strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-3" class="fa-solid fa-snowflake text-2xl text-blue-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-3">旭川/旭嶽即時氣候</span>
+                                <span id="weather-status-3" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-3" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-3" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>旭岳氣溫極低且可能有初雪，請務必攜帶<strong>羽絨外套、發熱衣、防風手套及毛帽</strong>。自駕行經山區請注意路面防滑。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">09:00 - 11:30</span>
+                            <h3 class="font-bold text-stone-800 mt-1">札幌市區租車點 (出發前往大雪山)</h3>
+                            <p class="text-sm text-stone-600 mt-1">辦理手續，經道央自動車道前往大雪山區域。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（札幌 ➔ 旭岳纜車）：預計約 <strong>2 小時 30 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">11:30 - 14:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">大雪山旭岳纜車 (姿見之池)</h3>
+                                    <p class="text-sm text-stone-600 mt-1">搭乘纜車登高俯瞰全北海道最早的高山紅葉群。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=旭岳ロープウェイ" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>山麓遊客中心步行：約 <strong>5 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">14:00 - 14:30</span>
+                            <h3 class="font-bold text-stone-800 mt-1">午餐預定地點：旭岳山麓食堂</h3>
+                            <p class="text-sm text-stone-600 mt-1">享用熱騰騰的在地蕎麥麵。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（旭岳 ➔ 旭山動物園）：預計約 <strong>50 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-emerald-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">14:30 - 17:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">旭山動物園</h3>
+                                    <p class="text-sm text-stone-600 mt-1">參觀極具人氣的北極熊與企鵝。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=旭山動物園" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（動物園 ➔ 旭川車站前）：預計約 <strong>25 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">19:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">晚餐預定地點：旭川站前拉麵街</h3>
+                                    <p class="text-sm text-stone-600 mt-1">於市區享用經典熟食豚骨叉燒拉麵。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=旭川駅+ラーメン" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">旭川阿瑪內克飯店 (Hotel Amanek Asahikawa)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：$2,730 TWD</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Amanek+Asahikawa" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 4 CONTENT -->
+            <div id="day-content-4" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 4 ・ 10/23 (五)</span>
+                        <h2 class="text-xl font-bold mt-0.5">白金青池・白鬚瀑布 ➔ 小樽運河</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:30 (退房出發)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-4" class="fa-solid fa-cloud-sun text-2xl text-amber-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-4">美瑛/小樽即時氣候</span>
+                                <span id="weather-status-4" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-4" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-4" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>美瑛山區早晨較冷，小樽海風強勁。建議穿著防風保暖外套與保暖長褲，小樽運河夜間漫步可帶暖暖包備用。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cyan-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">09:40 - 11:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">白金青池與白鬚瀑布</h3>
+                                    <p class="text-sm text-stone-600 mt-1">觀賞湛藍水面與溪谷紅葉交織的奇景。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=白金青池" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（青池 ➔ 美瑛選果）：預計約 <strong>20 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">11:30 - 12:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">午餐預定地點：美瑛選果餐廳</h3>
+                                    <p class="text-sm text-stone-600 mt-1">享用美瑛在地嚴選法式精緻料理。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=美瑛選果" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>國道/高速公路長途自駕（美瑛 ➔ 小樽）：預計約 <strong>2 小時 40 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">15:30 - 19:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">小樽運河與堺町通商店街</h3>
+                                    <p class="text-sm text-stone-600 mt-1">漫步運河古蹟倉庫群，品嚐雙層下午茶。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=小樽運河" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>步行至小樽倉庫 No.1：預計約 <strong>5 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">19:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">晚餐預定地點：小樽運河倉庫</h3>
+                                    <p class="text-sm text-stone-600 mt-1">享用精釀啤酒與熟食焗烤料理。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=小樽倉庫No.1" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">小樽格里茲高級飯店 (Grids Premium Hotel Otaru)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：$2,780 TWD</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Grids+Premium+Hotel+Otaru" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 5 CONTENT -->
+            <div id="day-content-5" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 5 ・ 10/24 (六)</span>
+                        <h2 class="text-xl font-bold mt-0.5">定山溪深秋秘境・溪谷獨木舟體驗</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:45 (小樽出發)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-5" class="fa-solid fa-cloud-rain text-2xl text-blue-400"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-5">定山溪即時氣候</span>
+                                <span id="weather-status-5" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-5" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-5" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>下午有獨木舟水上活動，<strong>請務必準備防潑水外套、多帶一份備用替換衣物與毛巾</strong>。溫泉區步道多濕滑，請穿止滑鞋款。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">10:00 - 12:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">豐平峽水壩</h3>
+                                    <p class="text-sm text-stone-600 mt-1">搭乘環保電氣巴士入山，欣賞壯觀的峽谷紅葉。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=豊平峡ダム" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（豐平峽 ➔ 定山溪溫泉街）：預計約 <strong>15 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">12:00 - 13:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">午餐預定地點：溫泉街食堂</h3>
+                                    <p class="text-sm text-stone-600 mt-1">享用日式味增拉麵與外酥內軟煎餃，漫步二見吊橋。</p>
+                                </div>
+                                <a href=" https://maps.app.goo.gl/BzEAxXebrpV9TZjN6?g_st=ic" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>步行至豐平川獨木舟集合點：預計約 <strong>10 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">15:00 - 16:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">豐平川獨木舟</h3>
+                                    <p class="text-sm text-stone-600 mt-1">體驗黃昏溪谷獨木舟，360 度欣賞峽谷楓紅。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=定山渓+カヌー" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-person-walking text-maple-500"></i>
+                        <span>步行前往蕎麥麵店：預計約 <strong>8 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">18:30 - 20:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">晚餐預定地點：手打蕎麥麵店</h3>
+                                    <p class="text-sm text-stone-600 mt-1">品嚐在地手打麵與天婦羅定食。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=定山渓+蕎麦" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">定山溪 BLISSEN 大飯店 (Jozankei Grand Hotel Blissen)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：$12,000 TWD</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jozankei+Grand+Hotel+Blissen" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 6 CONTENT -->
+            <div id="day-content-6" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 6 ・ 10/25 (日)</span>
+                        <h2 class="text-xl font-bold mt-0.5">洞爺湖 ➔ 大沼公園 ➔ 函館夜景</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:30 (定山溪出發)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-6" class="fa-solid fa-wind text-2xl text-stone-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-6">洞爺/函館即時氣候</span>
+                                <span id="weather-status-6" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-6" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-6" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>夜間函館山頂風極大且溫度偏低（降至 5 度以下），賞夜景時<strong>請務必身穿防風大衣、毛帽、圍巾與手套</strong>，並留意相機與手機保暖防耗電。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">10:30 - 12:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">洞爺湖サイロ展望台</h3>
+                                    <p class="text-sm text-stone-600 mt-1">遠眺火山口湖景與中島滿山紅葉全景。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=サイロ展望台" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕（洞爺湖 ➔ 大沼公園）：預計約 <strong>1 小時 10 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">13:00 - 15:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">大沼國定公園 (午餐地點)</h3>
+                                    <p class="text-sm text-stone-600 mt-1">漫步湖畔步道，遠眺駒之岳，品嚐傳統醬油糰子與熱咖哩。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=大沼国定公園" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-car text-maple-500"></i>
+                        <span>自駕前往函館市區還車點：預計約 <strong>45 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-stone-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">17:00 - 17:30</span>
+                            <h3 class="font-bold text-stone-800 mt-1">函館市區租車還車點</h3>
+                            <p class="text-sm text-stone-600 mt-1">順利辦理還車，切換為路面電車與步行模式。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-tram text-maple-500"></i>
+                        <span>市電+步行至函館山纜車站：預計約 <strong>15 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">17:30 - 20:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">函館山纜車 (賞百萬夜景)</h3>
+                                    <p class="text-sm text-stone-600 mt-1">搭纜車登上函館山，隨後前往晚餐。</p>
+                                </div>
+                                <!-- Fixed Google Maps Link for Hakodate Ropeway -->
+                                <a href="https://www.google.com/maps/search/?api=1&query=函館山ロープウェイ+山麓駅" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店 (第 1 晚)</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">函館世紀濱海酒店 (Century Marina Hakodate)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：$13,000 TWD（第 6、7 晚合併預算）</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 7 CONTENT -->
+            <div id="day-content-7" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 7 ・ 10/26 (一)</span>
+                        <h2 class="text-xl font-bold mt-0.5">五稜郭秋色 ➔ 見晴公園 ➔ 元町區</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:45 (步行至朝市)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-7" class="fa-solid fa-sun text-2xl text-amber-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-7">函館即時氣候</span>
+                                <span id="weather-status-7" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-7" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-7" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-shirt mr-1"></i>穿著與貼心提醒：</p>
+                        <p>五稜郭塔與香雪園園區開闊，建議穿著防風外套與好走輕便鞋。元町坂道（坡道）較陡斜，請特別注意步伐安全。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">09:00 - 10:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">早餐預定地點：函館朝市</h3>
+                                    <p class="text-sm text-stone-600 mt-1">品嚐熟食烤魚定食與炙燒干貝。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=函館朝市" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-tram text-maple-500"></i>
+                        <span>路面電車（函館站前 ➔ 五稜郭公園前）：預計 <strong>18 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">10:00 - 12:00</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">五稜郭公園與五稜郭塔</h3>
+                                    <p class="text-sm text-stone-600 mt-1">登高俯瞰滿滿紅葉包圍的星形護城河。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=五稜郭タワー" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-bus text-maple-500"></i>
+                        <span>函館巴士（五稜郭 ➔ 香雪園）：預計約 <strong>20 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">13:00 - 14:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">見晴公園（香雪園）</h3>
+                                    <p class="text-sm text-stone-600 mt-1">探訪北海道唯一的市定名勝庭園與楓葉大道。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=見晴公園+香雪園" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-bus text-maple-500"></i>
+                        <span>函館巴士/計程車（香雪園 ➔ 金森倉庫）：預計約 <strong>25 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">14:30 - 17:30</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">金森紅磚倉庫與元町區</h3>
+                                    <p class="text-sm text-stone-600 mt-1">漫步異國風情街道，品嚐下午茶。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=金森赤レンガ倉庫" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-bed mr-1"></i>今日住宿飯店 (第 2 晚)</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">函館世紀濱海酒店 (Century Marina Hakodate)</h3>
+                        <p class="text-xs text-stone-300 mt-1">住宿費用：已合併計入第 6 晚</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-stone-900 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shrink-0">
+                        <i class="fa-solid fa-location-arrow"></i> 開啟 Google 地圖
+                    </a>
+                </div>
+            </div>
+
+            <!-- DAY 8 CONTENT -->
+            <div id="day-content-8" class="day-panel hidden space-y-6">
+                <div class="bg-gradient-to-r from-maple-800 to-maple-600 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-amber-200">DAY 8 ・ 10/27 (二)</span>
+                        <h2 class="text-xl font-bold mt-0.5">機場早午餐 ➔ 採購伴手禮 ➔ 賦歸</h2>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-white/20 text-xs flex items-center gap-2 self-start md:self-auto">
+                        <i class="fa-solid fa-clock text-amber-300"></i>
+                        <span>預計出發時間：<strong>08:30 (退房出發)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Weather & Outfit Tips Card -->
+                <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 flex flex-col md:flex-row gap-4 text-xs">
+                    <div class="flex items-center gap-3 border-b md:border-b-0 md:border-r border-amber-200/80 pb-3 md:pb-0 md:pr-4 shrink-0">
+                        <i id="weather-icon-8" class="fa-solid fa-sun text-2xl text-amber-500"></i>
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-maple-600"></i>
+                                <span id="weather-city-8">台北即時氣候</span>
+                                <span id="weather-status-8" class="text-[10px] font-normal text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-1">API 連線中</span>
+                            </p>
+                            <p id="weather-temp-8" class="text-stone-600 mt-0.5"><i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：載入中...</p>
+                            <p id="weather-pop-8" class="text-stone-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：載入中...</p>
+                        </div>
+                    </div>
+                    <div class="flex-grow space-y-1 text-stone-700">
+                        <p class="font-bold text-amber-900"><i class="fa-solid fa-suitcase mr-1"></i>離境貼心提醒：</p>
+                        <p>請將手提行李與託運行李分開整理，伴手禮（如六花亭、白色戀人等含液體或奶油製品）請符合搭機安檢規定。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-maple-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">08:30 - 09:00</span>
+                            <h3 class="font-bold text-stone-800 mt-1">退房與輕食晨食</h3>
+                            <p class="text-sm text-stone-600 mt-1">辦理退房，於便利商店簡單享用輕食。</p>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-taxi text-maple-500"></i>
+                        <span>計程車車程（飯店 ➔ 函館機場）：預計約 <strong>20 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">09:00 - 09:25</span>
+                                    <h3 class="font-bold text-stone-800 mt-1">函館機場 (HKD)</h3>
+                                    <p class="text-sm text-stone-600 mt-1">辦理登機手續並托運行李🧳。</p>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=函館空港" target="_blank" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-map-location-dot"></i> 地圖
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transit Time Card -->
+                    <div class="bg-stone-100/80 rounded-xl p-2.5 text-xs text-stone-500 flex items-center gap-2 border border-stone-200/60 my-2">
+                        <i class="fa-solid fa-bag-shopping text-maple-500"></i>
+                        <span>航廈免稅店購物與報到：約 <strong>1 小時 35 分鐘</strong></span>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">09:25 - 11:00</span>
+                            <h3 class="font-bold text-stone-800 mt-1">機場景觀餐廳早午餐</h3>
+                            <p class="text-sm text-stone-600 mt-1">在機場內享用餐點與伴手禮採買。</p>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-maple-600 border-4 border-white shadow"></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                            <span class="text-xs font-semibold text-maple-700 bg-maple-50 px-2 py-0.5 rounded">12:30 - 15:45</span>
+                            <h3 class="font-bold text-stone-800 mt-1">搭乘台灣虎航 IT237 班機返回台北</h3>
+                            <p class="text-sm text-stone-600 mt-1">滿載楓紅記憶平穩返抵國門。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= VIEW 2: GOURMET MAP ================= -->
+        <section id="view-gourmet" class="tab-view hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-stone-800"><i class="fa-solid fa-utensils text-maple-600 mr-2"></i>北海道特色美食地圖</h2>
+                        <p class="text-sm text-stone-500">整理沿線精選餐廳，您也可以貼入 Google 地圖連結自由新增。</p>
+                    </div>
+                    <button onclick="toggleAddGourmetModal()" class="bg-maple-600 hover:bg-maple-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-plus"></i> 新增餐廳
+                    </button>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 pt-2 border-t border-stone-100">
+                    <button onclick="filterGourmet('all')" class="gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-maple-600 text-white transition shadow-sm" id="gourmet-filter-all">全部美食</button>
+                    <button onclick="filterGourmet('ramen')" class="gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200 transition" id="gourmet-filter-ramen">拉麵 / 湯咖哩</button>
+                    <button onclick="filterGourmet('seafood')" class="gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200 transition" id="gourmet-filter-seafood">螃蟹會席 / 熟食海鮮</button>
+                    <button onclick="filterGourmet('western')" class="gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200 transition" id="gourmet-filter-western">洋食 / 手打蕎麥</button>
+                    <button onclick="filterGourmet('dessert')" class="gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200 transition" id="gourmet-filter-dessert">甜點 / 糰子輕食</button>
+                </div>
+            </div>
+
+            <!-- Food Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="gourmet-card-container">
+                <!-- Dynamic Content Rendered via JS -->
+            </div>
+
+            <!-- Modal for Adding Custom Gourmet Store -->
+            <div id="gourmet-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+                <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-lg text-stone-800">新增餐廳資料</h3>
+                        <button onclick="toggleAddGourmetModal()" class="text-stone-400 hover:text-stone-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">餐廳名稱 *</label>
+                            <input type="text" id="new-gourmet-name" placeholder="例如：成吉思汗烤肉" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">美食分類</label>
+                            <select id="new-gourmet-category" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                                <option value="ramen">拉麵 / 湯咖哩</option>
+                                <option value="seafood">螃蟹會席 / 熟食海鮮</option>
+                                <option value="western">洋食 / 手打蕎麥</option>
+                                <option value="dessert">甜點 / 糰子輕食</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">停留地點 / 備註天數</label>
+                            <input type="text" id="new-gourmet-location" placeholder="例如：Day 2 札幌" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1"><i class="fa-solid fa-link text-maple-600 mr-1"></i>Google 地圖網址連結</label>
+                            <input type="text" id="new-gourmet-map-url" placeholder="貼上 Google 地圖分享連結 (https://...)" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">特色描述</label>
+                            <textarea id="new-gourmet-desc" rows="2" placeholder="簡短介紹這家餐廳的招牌菜..." class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 pt-2">
+                        <button onclick="toggleAddGourmetModal()" class="px-4 py-2 rounded-xl text-xs text-stone-500 hover:bg-stone-100">取消</button>
+                        <button onclick="saveNewGourmet()" class="px-4 py-2 rounded-xl text-xs bg-maple-600 text-white font-bold hover:bg-maple-700">儲存並加入</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: OVERVIEW & BUDGET ================= -->
+        <section id="view-overview" class="tab-view hidden space-y-6">
+            
+            <!-- Exchange Rate Calculator Control -->
+            <div class="bg-gradient-to-r from-amber-700 to-maple-800 text-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h2 class="text-xl font-bold"><i class="fa-solid fa-calculator mr-2"></i>預算總覽與匯率換算</h2>
+                    <p class="text-xs text-amber-200 mt-1">自動進行雙向幣別轉換與離線儲存。</p>
+                </div>
+                <!-- Updated Exchange Rate: JPY to TWD -->
+                <div class="flex items-center gap-3 bg-black/20 p-3 rounded-xl border border-white/10 self-stretch md:self-auto justify-between">
+                    <span class="text-xs font-medium">匯率 (日幣 ➔ 台幣)：</span>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs">1 JPY =</span>
+                        <input type="number" id="exchange-rate-input" step="0.001" value="0.215" onchange="updateExchangeRateFromInput()" class="w-20 bg-white/20 text-white font-bold text-center text-xs py-1 rounded border border-white/20 outline-none">
+                        <span class="text-xs">TWD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Budget Table -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-stone-800 text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-maple-600"></i> 預算費用明細表
+                    </h3>
+                    <button onclick="toggleAddBudgetItemModal()" class="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition">
+                        <i class="fa-solid fa-plus"></i> 新增費用項目
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="border-b border-stone-200 text-stone-400 text-xs uppercase">
+                                <th class="py-3 px-2">類別</th>
+                                <th class="py-3 px-2">項目</th>
+                                <th class="py-3 px-2 text-right">台幣 (TWD)</th>
+                                <th class="py-3 px-2 text-right">日幣(JPY)</th>
+                                <th class="py-3 px-2 text-center w-12">刪除</th>
+                            </tr>
+                        </thead>
+                        <tbody id="budget-table-body" class="divide-y divide-stone-100 text-stone-700">
+                            <!-- Rendered Dynamically via JS -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-amber-50/60 font-bold text-stone-800 border-t-2 border-amber-200">
+                                <td colspan="2" class="py-3 px-2 text-right">合計總金額：</td>
+                                <td class="py-3 px-2 text-right text-maple-700 text-base" id="total-twd-cell">NT$ 0</td>
+                                <td class="py-3 px-2 text-right text-stone-600" id="total-jpy-cell">¥ 0</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal for Adding Budget Item -->
+            <div id="budget-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+                <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-lg text-stone-800">新增預算費用項目</h3>
+                        <button onclick="toggleAddBudgetItemModal()" class="text-stone-400 hover:text-stone-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">費用類別</label>
+                            <input type="text" id="new-budget-cat" placeholder="例如：機票 / 住宿 / 交通 / 餐飲" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 mb-1">項目說明 *</label>
+                            <input type="text" id="new-budget-title" placeholder="例如：函館山纜車門票" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                        </div>
+                        <!-- Added Currency Choice: JPY or TWD -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-600 mb-1">幣值選取 *</label>
+                                <select id="new-budget-currency" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                                    <option value="TWD">台幣 (TWD)</option>
+                                    <option value="JPY">日幣 (JPY)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-600 mb-1">金額 *</label>
+                                <input type="number" id="new-budget-amount" placeholder="例如：1800" class="w-full border border-stone-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-maple-500 outline-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 pt-2">
+                        <button onclick="toggleAddBudgetItemModal()" class="px-4 py-2 rounded-xl text-xs text-stone-500 hover:bg-stone-100">取消</button>
+                        <button onclick="saveNewBudgetItem()" class="px-4 py-2 rounded-xl text-xs bg-amber-600 text-white font-bold hover:bg-amber-700">新增項目</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 4: MEMO / NOTES (Renamed) ================= -->
+        <section id="view-memo" class="tab-view hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-bold text-stone-800"><i class="fa-solid fa-note-sticky text-maple-600 mr-2"></i>行程備忘錄</h2>
+                        <p class="text-sm text-stone-500">輸入護照資訊、包車電話、搭車備忘或清單。</p>
+                    </div>
+                    <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-cloud-arrow-up mr-1"></i>離線自動同步</span>
+                </div>
+
+                <textarea id="memo-textarea" oninput="saveMemoContent()" rows="14" placeholder="在這裡輸入您的旅行備忘錄（如：護照號碼、自駕租車預約號碼、必買伴手禮清單、緊急聯絡電話等）..." class="w-full border border-stone-200 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-maple-500 outline-none leading-relaxed text-stone-700 bg-stone-50/50"></textarea>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-stone-200 py-2 px-4 z-40 md:hidden shadow-lg">
+        <div class="flex justify-around items-center text-center">
+            <button onclick="switchMainTab('itinerary')" class="mob-tab-btn flex flex-col items-center text-maple-600 font-bold" id="mob-tab-itinerary">
+                <i class="fa-solid fa-calendar-days text-lg"></i>
+                <span class="text-[10px] mt-0.5">每日行程</span>
+            </button>
+            <button onclick="switchMainTab('gourmet')" class="mob-tab-btn flex flex-col items-center text-stone-400 font-medium" id="mob-tab-gourmet">
+                <i class="fa-solid fa-utensils text-lg"></i>
+                <span class="text-[10px] mt-0.5">美食地圖</span>
+            </button>
+            <button onclick="switchMainTab('overview')" class="mob-tab-btn flex flex-col items-center text-stone-400 font-medium" id="mob-tab-overview">
+                <i class="fa-solid fa-chart-pie text-lg"></i>
+                <span class="text-[10px] mt-0.5">費用總覽</span>
+            </button>
+            <button onclick="switchMainTab('memo')" class="mob-tab-btn flex flex-col items-center text-stone-400 font-medium" id="mob-tab-memo">
+                <i class="fa-solid fa-note-sticky text-lg"></i>
+                <span class="text-[10px] mt-0.5">備忘錄</span>
+            </button>
+        </div>
+    </div>
+
+<!-- JavaScript Logic -->
+<script>
+    // Open-Meteo Free Weather API Connection Logic
+    const cityCoordinates = {
+        1: { name: '札幌', lat: 43.0618, lon: 141.3545 },
+        2: { name: '札幌', lat: 43.0618, lon: 141.3545 },
+        3: { name: '旭川/旭嶽', lat: 43.7706, lon: 142.3649 },
+        4: { name: '美瑛/小樽', lat: 43.5925, lon: 142.4601 },
+        5: { name: '定山溪', lat: 42.9642, lon: 141.1622 },
+        6: { name: '洞爺/函館', lat: 41.7687, lon: 140.7288 },
+        7: { name: '函館', lat: 41.7687, lon: 140.7288 },
+        8: { name: '台北', lat: 25.0797, lon: 121.2342 }
+    };
+
+    async function fetchRealtimeWeather() {
+        for (let day = 1; day <= 8; day++) {
+            const city = cityCoordinates[day];
+            if (!city) continue;
+
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Weather API request failed");
+                
+                const data = await response.json();
+                
+                const currentTemp = Math.round(data.current_weather.temperature);
+                const maxTemp = Math.round(data.daily.temperature_2m_max[0]);
+                const minTemp = Math.round(data.daily.temperature_2m_min[0]);
+                const pop = data.daily.precipitation_probability_max[0] ?? 10;
+                const weatherCode = data.current_weather.weathercode;
+
+                // Update UI safely
+                const tempElem = document.getElementById(`weather-temp-${day}`);
+                const popElem = document.getElementById(`weather-pop-${day}`);
+                const statusElem = document.getElementById(`weather-status-${day}`);
+                const iconElem = document.getElementById(`weather-icon-${day}`);
+
+                if (tempElem) tempElem.innerHTML = `<i class="fa-solid fa-temperature-half text-amber-600 mr-1"></i>氣溫：<strong class="text-maple-700">${currentTemp}°C</strong> (${minTemp}°C ~ ${maxTemp}°C)`;
+                if (popElem) popElem.innerHTML = `<i class="fa-solid fa-cloud-showers-heavy text-blue-500 mr-1"></i>降雨機率：<strong class="text-blue-600">${pop}%</strong>`;
+                if (statusElem) {
+                    statusElem.innerText = "API 即時連線";
+                    statusElem.className = "text-[10px] font-normal text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded ml-1";
+                }
+
+                if (iconElem) {
+                    if (weatherCode === 0) {
+                        iconElem.className = "fa-solid fa-sun text-2xl text-amber-500";
+                    } else if (weatherCode >= 1 && weatherCode <= 3) {
+                        iconElem.className = "fa-solid fa-cloud-sun text-2xl text-amber-600";
+                    } else if (weatherCode >= 51 && weatherCode <= 67) {
+                        iconElem.className = "fa-solid fa-cloud-rain text-2xl text-blue-500";
+                    } else if (weatherCode >= 71 && weatherCode <= 86) {
+                        iconElem.className = "fa-solid fa-snowflake text-2xl text-blue-400";
+                    } else {
+                        iconElem.className = "fa-solid fa-cloud text-2xl text-stone-500";
+                    }
+                }
+
+            } catch (error) {
+                console.error(`Error loading weather for Day ${day}:`, error);
+                const statusElem = document.getElementById(`weather-status-${day}`);
+                if (statusElem) {
+                    statusElem.innerText = "預設離線數值";
+                    statusElem.className = "text-[10px] font-normal text-stone-600 bg-stone-200 px-1.5 py-0.5 rounded ml-1";
+                }
+            }
+        }
+    }
+
+    // Default Data State
+    const DEFAULT_BUDGETS = [
+        { id: 1, category: "機票", title: "酷航去程 (TR892) + 虎航回程 (IT237)", originalAmount: 24155, currency: "TWD" },
+        { id: 2, category: "住宿", title: "札幌萬怡酒店 2 晚", originalAmount: 10500, currency: "TWD" },
+        { id: 3, category: "住宿", title: "旭川阿瑪內克飯店 1 晚", originalAmount: 2730, currency: "TWD" },
+        { id: 4, category: "住宿", title: "小樽格里茲高級飯店 1 晚", originalAmount: 2780, currency: "TWD" },
+        { id: 5, category: "住宿", title: "定山溪 BLISSEN 大飯店 1 晚", originalAmount: 12000, currency: "TWD" },
+        { id: 6, category: "住宿", title: "函館世紀濱海酒店 2 晚", originalAmount: 13000, currency: "TWD" },
+    ];
+
+    const DEFAULT_GOURMET = [
+        { id: 1, name: "えびそば一幻 (新千歲機場店)", category: "ramen", location: "Day 1 新千歲機場", desc: "北海道極具代表性的甜蝦湯頭拉麵，濃郁鮮美。", mapUrl: "https://www.google.com/maps/search/?api=1&query=えびそば一幻+新千歳空港店" },
+        { id: 2, name: "札幌螃蟹家 (札幌かに家) 本店", category: "seafood", location: "Day 2 札幌市區", desc: "精緻熟食螃蟹會席料理，盛宴享受。", mapUrl: "https://www.google.com/maps/search/?api=1&query=札幌かに家+本店" },
+        { id: 3, name: "Suage+ 狸小路店", category: "ramen", location: "Day 2 狸小路", desc: "主打香濃熟食湯咖哩與高山野菜烤串。", mapUrl: "https://www.google.com/maps/search/?api=1&query=Suage+狸小路店" },
+        { id: 4, name: "五島軒 舊洋食館", category: "western", location: "Day 6 函館", desc: "函館歷史悠久的傳奇洋食館，招牌英式咖哩。", mapUrl: "https://www.google.com/maps/search/?api=1&query=五島軒+舊洋食館" }
+    ];
+
+    // State Variables
+    let exchangeRate = 0.215; // JPY to TWD rate
+    let budgetList = [];
+    let gourmetList = [];
+    let memoText = "";
+
+    // Initializer with LocalStorage Load
+    document.addEventListener('DOMContentLoaded', () => {
+        loadAllStoredData();
+        renderBudgetTable();
+        renderGourmetCards();
+        fetchRealtimeWeather(); // 修正：自動載入即時天氣
+    });
+
+    // LocalStorage Management
+    function loadAllStoredData() {
+        const rateInput = document.getElementById('exchange-rate-input');
+        const memoArea = document.getElementById('memo-textarea');
+
+        // Load Rate
+        const savedRate = localStorage.getItem('hokkaido_rate');
+        if (savedRate) {
+            exchangeRate = parseFloat(savedRate);
+        }
+        if (rateInput) rateInput.value = exchangeRate;
+
+        // Load Budgets
+        const savedBudgets = localStorage.getItem('hokkaido_budgets');
+        budgetList = savedBudgets ? JSON.parse(savedBudgets) : [...DEFAULT_BUDGETS];
+
+        // Load Gourmet
+        const savedGourmet = localStorage.getItem('hokkaido_gourmet');
+        gourmetList = savedGourmet ? JSON.parse(savedGourmet) : [...DEFAULT_GOURMET];
+
+        // Load Memo
+        const savedMemo = localStorage.getItem('hokkaido_memo');
+        if (savedMemo) {
+            memoText = savedMemo;
+            if (memoArea) memoArea.value = memoText;
+        }
+    }
+
+    // View Tabs Switching Logic
+    function switchMainTab(tabName) {
+        document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
+        const targetView = document.getElementById(`view-${tabName}`);
+        if (targetView) targetView.classList.remove('hidden');
+
+        // Desktop Buttons Styling
+        document.querySelectorAll('.main-tab-btn').forEach(btn => {
+            btn.classList.remove('text-amber-200', 'border-amber-400');
+            btn.classList.add('text-stone-300', 'border-transparent');
+        });
+        const activeDeskBtn = document.getElementById(`desk-tab-${tabName}`);
+        if (activeDeskBtn) {
+            activeDeskBtn.classList.add('text-amber-200', 'border-amber-400');
+            activeDeskBtn.classList.remove('text-stone-300', 'border-transparent');
+        }
+
+        // Mobile Buttons Styling
+        document.querySelectorAll('.mob-tab-btn').forEach(btn => {
+            btn.classList.remove('text-maple-600', 'font-bold');
+            btn.classList.add('text-stone-400', 'font-medium');
+        });
+        const activeMobBtn = document.getElementById(`mob-tab-${tabName}`);
+        if (activeMobBtn) {
+            activeMobBtn.classList.add('text-maple-600', 'font-bold');
+            activeMobBtn.classList.remove('text-stone-400', 'font-medium');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Switch Day Itinerary Panel
+    function switchDay(dayNum) {
+        document.querySelectorAll('.day-panel').forEach(el => el.classList.add('hidden'));
+        const dayContent = document.getElementById(`day-content-${dayNum}`);
+        if (dayContent) dayContent.classList.remove('hidden');
+
+        document.querySelectorAll('.day-btn').forEach(btn => {
+            btn.className = "day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm text-stone-600 bg-white hover:bg-maple-50 border border-stone-200 transition shadow-sm";
+        });
+
+        const activeBtn = document.getElementById(`day-btn-${dayNum}`);
+        if (activeBtn) {
+            activeBtn.className = "day-btn flex-shrink-0 px-4 py-2 rounded-xl font-medium text-sm transition shadow-sm bg-maple-600 text-white";
+        }
+
+        const anchor = document.getElementById('itinerary-top-anchor');
+        if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- BUDGET & EXCHANGE RATE LOGIC ---
+    function updateExchangeRateFromInput() {
+        const rateInput = document.getElementById('exchange-rate-input');
+        if (!rateInput) return;
+        
+        const inputVal = parseFloat(rateInput.value);
+        if (!isNaN(inputVal) && inputVal > 0) {
+            exchangeRate = inputVal;
+            localStorage.setItem('hokkaido_rate', exchangeRate);
+            renderBudgetTable();
+        }
+    }
+
+    function renderBudgetTable() {
+        const tbody = document.getElementById('budget-table-body');
+        if (!tbody) return;
+
+        tbody.innerHTML = '';
+        let totalTWD = 0;
+        let totalJPY = 0;
+
+        budgetList.forEach((item, index) => {
+            let twdVal = 0;
+            let jpyVal = 0;
+
+            if (item.currency === 'TWD') {
+                twdVal = item.originalAmount;
+                jpyVal = Math.round(twdVal / exchangeRate);
+            } else {
+                jpyVal = item.originalAmount;
+                twdVal = Math.round(jpyVal * exchangeRate);
+            }
+
+            totalTWD += twdVal;
+            totalJPY += jpyVal;
+
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-stone-50 transition";
+            tr.innerHTML = `
+                <td class="py-3 px-2 font-medium"><span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded text-xs">${item.category}</span></td>
+                <td class="py-3 px-2 font-semibold text-stone-800">${item.title}</td>
+                <td class="py-3 px-2 text-right font-medium text-maple-700">NT$ ${twdVal.toLocaleString()}</td>
+                <td class="py-3 px-2 text-right text-stone-500">¥ ${jpyVal.toLocaleString()}</td>
+                <td class="py-3 px-2 text-center">
+                    <button onclick="deleteBudgetItem(${index})" class="text-stone-300 hover:text-red-500 transition"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Update Summaries Safely
+        const setInnerText = (id, val) => {
+            const elem = document.getElementById(id);
+            if (elem) elem.innerText = val;
+        };
+
+        setInnerText('total-twd-cell', `NT$ ${totalTWD.toLocaleString()}`);
+        setInnerText('total-jpy-cell', `¥ ${totalJPY.toLocaleString()}`);
+        setInnerText('header-total-twd', `NT$ ${totalTWD.toLocaleString()}`);
+        setInnerText('header-total-jpy', `¥ ${totalJPY.toLocaleString()}`);
+    }
+
+    function toggleAddBudgetItemModal() {
+        const modal = document.getElementById('budget-modal');
+        if (modal) modal.classList.toggle('hidden');
+    }
+
+    function saveNewBudgetItem() {
+        const catElem = document.getElementById('new-budget-cat');
+        const titleElem = document.getElementById('new-budget-title');
+        const currElem = document.getElementById('new-budget-currency');
+        const amtElem = document.getElementById('new-budget-amount');
+
+        const cat = catElem ? catElem.value.trim() : '其他';
+        const title = titleElem ? titleElem.value.trim() : '';
+        const currency = currElem ? currElem.value : 'TWD';
+        const amount = amtElem ? parseFloat(amtElem.value) : NaN;
+
+        if (!title || isNaN(amount) || amount <= 0) {
+            alert('請填寫有效的項目說明與金額！');
+            return;
+        }
+
+        const newItem = {
+            id: Date.now(),
+            category: cat || '其他',
+            title: title,
+            originalAmount: amount,
+            currency: currency
+        };
+
+        budgetList.push(newItem);
+        localStorage.setItem('hokkaido_budgets', JSON.stringify(budgetList));
+
+        if (titleElem) titleElem.value = '';
+        if (amtElem) amtElem.value = '';
+        toggleAddBudgetItemModal();
+        renderBudgetTable();
+    }
+
+    function deleteBudgetItem(index) {
+        if (confirm('確定要刪除這筆預算項目嗎？')) {
+            budgetList.splice(index, 1);
+            localStorage.setItem('hokkaido_budgets', JSON.stringify(budgetList));
+            renderBudgetTable();
+        }
+    }
+
+    // --- GOURMET MAP LOGIC ---
+    function renderGourmetCards(filterCat = 'all') {
+        const container = document.getElementById('gourmet-card-container');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        const filteredList = filterCat === 'all' 
+            ? gourmetList 
+            : gourmetList.filter(item => item.category === filterCat);
+
+        if (filteredList.length === 0) {
+            container.innerHTML = `<p class="col-span-full text-center text-stone-400 py-8">這個分類下尚無餐廳資料。</p>`;
+            return;
+        }
+
+        filteredList.forEach((item) => {
+            let catTag = '美食';
+            let catColor = 'bg-maple-50 text-maple-700';
+
+            if (item.category === 'ramen') { catTag = '拉麵 / 湯咖哩'; catColor = 'bg-maple-50 text-maple-700'; }
+            else if (item.category === 'seafood') { catTag = '螃蟹會席 / 熟食海鮮'; catColor = 'bg-red-50 text-red-700'; }
+            else if (item.category === 'western') { catTag = '洋食 / 手打蕎麥'; catColor = 'bg-blue-50 text-blue-700'; }
+            else if (item.category === 'dessert') { catTag = '甜點 / 糰子輕食'; catColor = 'bg-amber-50 text-amber-700'; }
+
+            const mapLinkHtml = item.mapUrl 
+                ? `<a href="${item.mapUrl}" target="_blank" class="mt-4 text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition font-medium">
+                    <i class="fa-solid fa-map-location-dot"></i> 開啟 Google 地圖
+                   </a>`
+                : `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name)}" target="_blank" class="mt-4 text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition font-medium">
+                    <i class="fa-solid fa-magnifying-glass-location"></i> 在 Google 地圖搜尋
+                   </a>`;
+
+            const card = document.createElement('div');
+            card.className = "gourmet-card bg-white p-5 rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between relative group";
+            card.innerHTML = `
+                <div>
+                    <div class="flex justify-between items-start mb-2 pr-6">
+                        <span class="text-xs font-bold ${catColor} px-2 py-0.5 rounded-full">${catTag}</span>
+                        <span class="text-xs text-stone-400">${item.location || ''}</span>
+                    </div>
+                    <h3 class="font-bold text-stone-800 text-lg">${item.name}</h3>
+                    <p class="text-sm text-stone-600 mt-1">${item.desc || '暫無描述'}</p>
+                </div>
+                ${mapLinkHtml}
+                <button onclick="deleteGourmetItem(${item.id})" class="absolute top-4 right-4 text-stone-300 hover:text-red-500 transition opacity-0 group-hover:opacity-100">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterGourmet(cat) {
+        document.querySelectorAll('.gourmet-filter-btn').forEach(btn => {
+            btn.className = "gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200 transition";
+        });
+        const activeFilterBtn = document.getElementById(`gourmet-filter-${cat}`);
+        if (activeFilterBtn) {
+            activeFilterBtn.className = "gourmet-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-maple-600 text-white transition shadow-sm";
+        }
+        renderGourmetCards(cat);
+    }
+
+    function toggleAddGourmetModal() {
+        const modal = document.getElementById('gourmet-modal');
+        if (modal) modal.classList.toggle('hidden');
+    }
+
+    function saveNewGourmet() {
+        const nameElem = document.getElementById('new-gourmet-name');
+        const catElem = document.getElementById('new-gourmet-category');
+        const locElem = document.getElementById('new-gourmet-location');
+        const mapUrlElem = document.getElementById('new-gourmet-map-url');
+        const descElem = document.getElementById('new-gourmet-desc');
+
+        const name = nameElem ? nameElem.value.trim() : '';
+        const cat = catElem ? catElem.value : 'ramen';
+        const loc = locElem ? locElem.value.trim() : '';
+        const mapUrl = mapUrlElem ? mapUrlElem.value.trim() : '';
+        const desc = descElem ? descElem.value.trim() : '';
+
+        if (!name) {
+            alert('請輸入餐廳名稱！');
+            return;
+        }
+
+        const newGourmet = {
+            id: Date.now(),
+            name: name,
+            category: cat,
+            location: loc,
+            mapUrl: mapUrl,
+            desc: desc
+        };
+
+        gourmetList.push(newGourmet);
+        localStorage.setItem('hokkaido_gourmet', JSON.stringify(gourmetList));
+
+        if (nameElem) nameElem.value = '';
+        if (locElem) locElem.value = '';
+        if (mapUrlElem) mapUrlElem.value = '';
+        if (descElem) descElem.value = '';
+
+        toggleAddGourmetModal();
+        renderGourmetCards();
+    }
+
+    function deleteGourmetItem(id) {
+        if (confirm('確定要移除此餐廳嗎？')) {
+            gourmetList = gourmetList.filter(item => item.id !== id);
+            localStorage.setItem('hokkaido_gourmet', JSON.stringify(gourmetList));
+            renderGourmetCards();
+        }
+    }
+
+    // --- MEMO STORAGE LOGIC ---
+    function saveMemoContent() {
+        const memoArea = document.getElementById('memo-textarea');
+        if (memoArea) {
+            localStorage.setItem('hokkaido_memo', memoArea.value);
+        }
+    }
+</script>
+</body>
+</html>
